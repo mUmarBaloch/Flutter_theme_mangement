@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:persistance/core/persistance.dart';
 
-StreamController controller = StreamController();
+StreamController controller = StreamController.broadcast();
 
 class CustomTheme {
   static bool isDark = false;
