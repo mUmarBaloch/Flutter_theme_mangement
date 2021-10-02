@@ -15,91 +15,41 @@ class Settings extends StatelessWidget {
             ),
             body: Column(
               children: [
-                ListTile(
-                  onTap: () => {},
-                  leading:
-                      Icon(Icons.person, color: CustomTheme.foregroundColor),
-                  title: Text(
-                    'Edit profile',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                  subtitle: Text(
-                    'change your profile',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                ),
-                ListTile(
-                  onTap: () => {},
-                  leading: Icon(Icons.info, color: CustomTheme.foregroundColor),
-                  title: Text(
-                    'change about',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                  subtitle: Text(
-                    "edits your profile's about",
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                ),
+                optionTile(() => null, Icons.person,
+                    title: 'Edit profile',
+                    subtitle: 'change your profile',
+                    isDarkBtn: false),
+                optionTile(() => null, Icons.edit,
+                    title: 'Edit profile',
+                    subtitle: 'change your profile',
+                    isDarkBtn: false),
+                optionTile(() => null, Icons.edit,
+                    title: 'change about',
+                    subtitle: 'edits your profile\'s about',
+                    isDarkBtn: false),
                 SizedBox(
                   height: 70,
                 ),
-                ListTile(
-                  onTap: () => {},
-                  leading: Icon(Icons.color_lens,
-                      color: CustomTheme.foregroundColor),
-                  title: Text(
-                    'Change Color Pallete',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                  subtitle: Text(
-                    'change flavour',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                ),
-                ListTile(
-                  onTap: () => CustomTheme.switchToDarkMode(),
-                  leading: Icon(Icons.dark_mode,
-                      color: CustomTheme.isDark
-                          ? Colors.deepPurple
-                          : CustomTheme.foregroundColor),
-                  title: Text(
-                    'Set to Dark Mode',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                  subtitle: Text(
-                    'black shade',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                ),
-                ListTile(
-                  onTap: () => CustomTheme.switchToLightMode(),
-                  leading: Icon(Icons.light_mode,
-                      color: !CustomTheme.isDark
-                          ? Colors.deepPurple
-                          : CustomTheme.foregroundColor),
-                  title: Text(
-                    'Set to Light Mode',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                  subtitle: Text(
-                    'white shade',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                ),
+                optionTile(() => null, Icons.color_lens,
+                    title: 'change color pallete',
+                    subtitle: 'change theme flavour',
+                    isDarkBtn: false),
+                optionTile(CustomTheme.switchToDarkMode, Icons.dark_mode,
+                    title: 'set to dark mode',
+                    subtitle: 'dark shade',
+                    isThemeTile: true,
+                    isDarkBtn: true),
+                optionTile(
+                    () => CustomTheme.switchToLightMode, Icons.light_mode,
+                    title: 'set to light mode',
+                    subtitle: 'light shade',
+                    isThemeTile: true,
+                    isDarkBtn: false),
                 Spacer(),
-                ListTile(
-                  onTap: () => Persistance().resetTheme(),
-                  leading:
-                      Icon(Icons.reset_tv, color: CustomTheme.foregroundColor),
-                  title: Text(
-                    'Reset data',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                  subtitle: Text(
-                    'resets theme persistance',
-                    style: TextStyle(color: CustomTheme.foregroundColor),
-                  ),
-                ),
+                optionTile(() => Persistance().resetTheme, Icons.reset_tv,
+                    title: 'reset data',
+                    subtitle: 'resets theme persistance',
+                    isDarkBtn: false),
                 SizedBox(
                   height: 060,
                 ),
@@ -107,5 +57,34 @@ class Settings extends StatelessWidget {
             ),
           );
         });
+  }
+
+  ListTile optionTile(Function onTap, IconData icon,
+      {required String title,
+      String? subtitle,
+      bool isThemeTile = false,
+      required bool isDarkBtn}) {
+    return ListTile(
+      onTap: () => onTap(),
+      leading: !isThemeTile
+          ? Icon(icon, color: CustomTheme.foregroundColor)
+          : !isDarkBtn
+              ? Icon(Icons.light_mode,
+                  color: !CustomTheme.isDark
+                      ? Colors.deepPurple
+                      : CustomTheme.foregroundColor)
+              : Icon(Icons.dark_mode,
+                  color: CustomTheme.isDark
+                      ? Colors.deepPurple
+                      : CustomTheme.foregroundColor),
+      title: Text(
+        '$title',
+        style: TextStyle(color: CustomTheme.foregroundColor),
+      ),
+      subtitle: Text(
+        subtitle ?? '',
+        style: TextStyle(color: CustomTheme.foregroundColor),
+      ),
+    );
   }
 }
