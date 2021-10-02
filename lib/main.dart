@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistance/core/persistance.dart';
 import 'package:persistance/screen/home_page.dart';
-import 'package:persistance/core/theme.dart';
 
 void main() async {
   await Persistance().loadTheme();
@@ -14,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.deepPurple,
+      ),
       home: HomePage(),
     );
   }

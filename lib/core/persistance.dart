@@ -14,4 +14,11 @@ class Persistance {
         var _themeFromPref = pref!.getBool('isDark') ?? CustomTheme.isDark;
         CustomTheme.isDark = _themeFromPref;
       });
+
+  resetTheme() async {
+    await initPref().then((pref) => pref!.remove('isDark'));
+    // ignore: unnecessary_statements
+    CustomTheme.isDark = false;
+    controller.sink.add(false);
+  }
 }

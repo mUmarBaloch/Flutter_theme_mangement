@@ -1,6 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:persistance/core/persistance.dart';
 import 'package:persistance/core/theme.dart';
 
 class Settings extends StatelessWidget {
@@ -89,7 +88,7 @@ class Settings extends StatelessWidget {
                 ),
                 Spacer(),
                 ListTile(
-                  onTap: () => {},
+                  onTap: () => Persistance().resetTheme(),
                   leading:
                       Icon(Icons.reset_tv, color: CustomTheme.foregroundColor),
                   title: Text(
@@ -97,7 +96,7 @@ class Settings extends StatelessWidget {
                     style: TextStyle(color: CustomTheme.foregroundColor),
                   ),
                   subtitle: Text(
-                    'resets all themes',
+                    'resets theme persistance',
                     style: TextStyle(color: CustomTheme.foregroundColor),
                   ),
                 ),
