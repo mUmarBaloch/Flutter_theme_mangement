@@ -1,16 +1,19 @@
-# persistance
+# Custom Theme Management
 
-A new Flutter project.
+This app is not using pre-designed theme util by flutter, rather a custom theme class having changes and static instance variable of colors.
 
-## Getting Started
+## Persistance
 
-This project is a starting point for a Flutter application.
+featured with user persistancy, with shared preferences.
 
-A few resources to get you started if this is your first Flutter project:
+## Lets Build
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+enable flutter desktop first, flutter config --enable-windows-desktop
+flutter config --enable-macos-desktop
+flutter config --enable-linux-desktop, now build this app on desktop. as this app is tested only in desktop yet.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Pull requests
+
+i f you find any bug or hv any idea then Pull requests are always welcome.
+
+Kindly star this repo.
