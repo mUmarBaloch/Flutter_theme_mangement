@@ -14,4 +14,6 @@ flutter config --enable-linux-desktop, now build this app on desktop. as this ap
 
 #### Pull requests
 
-Pull requests are always availble, kindly star this repo.
+i f you find any bug or hv any idea then Pull requests are always welcome.
+
+Kindly star this repo.
