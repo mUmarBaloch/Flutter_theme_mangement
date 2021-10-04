@@ -13,7 +13,7 @@ class CustomTheme {
   static switchToDarkMode() {
     isDark = true;
     Persistance().setTheme();
-    controller.sink.add('changed');
+    controller.sink.add('change');
     print('dark mode');
   }
 

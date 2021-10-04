@@ -40,13 +40,13 @@ class Settings extends StatelessWidget {
                     isThemeTile: true,
                     isDarkBtn: true),
                 optionTile(
-                    () => CustomTheme.switchToLightMode, Icons.light_mode,
+                    () => CustomTheme.switchToLightMode(), Icons.light_mode,
                     title: 'set to light mode',
                     subtitle: 'light shade',
                     isThemeTile: true,
                     isDarkBtn: false),
                 Spacer(),
-                optionTile(() => Persistance().resetTheme, Icons.reset_tv,
+                optionTile(() => Persistance().resetTheme(), Icons.reset_tv,
                     title: 'reset data',
                     subtitle: 'resets theme persistance',
                     isDarkBtn: false),
@@ -59,7 +59,7 @@ class Settings extends StatelessWidget {
         });
   }
 
-  ListTile optionTile(Function onTap, IconData icon,
+  ListTile optionTile(onTap, IconData icon,
       {required String title,
       String? subtitle,
       bool isThemeTile = false,
