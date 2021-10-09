@@ -43,7 +43,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Icons.light_mode,
                   color: CustomTheme.isDark
                       ? CustomTheme.foregroundColor
-                      : Colors.deepPurple,
+                      : CustomTheme.primaryColor,
                 )),
             ListTile(
               onTap: () => setState(
@@ -57,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Icons.dark_mode,
                 color: !CustomTheme.isDark
                     ? CustomTheme.foregroundColor
-                    : Colors.deepPurple,
+                    : CustomTheme.primaryColor,
               ),
             ),
             ListTile(

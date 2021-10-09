@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
             backgroundColor: CustomTheme.baseColor,
             drawer: CustomDrawer(),
             appBar: AppBar(
+              backgroundColor: CustomTheme.primaryColor,
               title: Text('Theme Management with SharedPref'),
             ),
             body: Center(
@@ -57,7 +58,7 @@ class HomePage extends StatelessWidget {
         color: CustomTheme.foregroundColor,
         size: 65,
       ),
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: CustomTheme.primaryColor,
       radius: 60,
     );
   }

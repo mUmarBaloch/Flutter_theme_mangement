@@ -11,6 +11,7 @@ class Settings extends StatelessWidget {
           return Scaffold(
             backgroundColor: CustomTheme.baseColor,
             appBar: AppBar(
+              backgroundColor: CustomTheme.primaryColor,
               title: Text('Settings'),
             ),
             body: Column(
@@ -20,17 +21,17 @@ class Settings extends StatelessWidget {
                     subtitle: 'change your profile',
                     isDarkBtn: false),
                 optionTile(() => null, Icons.edit,
-                    title: 'Edit profile',
-                    subtitle: 'change your profile',
+                    title: 'Edit email',
+                    subtitle: 'change your emial',
                     isDarkBtn: false),
-                optionTile(() => null, Icons.edit,
+                optionTile(() => null, Icons.email,
                     title: 'change about',
                     subtitle: 'edits your profile\'s about',
                     isDarkBtn: false),
                 SizedBox(
                   height: 70,
                 ),
-                optionTile(() => null, Icons.color_lens,
+                optionTile(() => CustomTheme.changePallete(), Icons.color_lens,
                     title: 'change color pallete',
                     subtitle: 'change theme flavour',
                     isDarkBtn: false),
@@ -71,11 +72,11 @@ class Settings extends StatelessWidget {
           : !isDarkBtn
               ? Icon(Icons.light_mode,
                   color: !CustomTheme.isDark
-                      ? Colors.deepPurple
+                      ? CustomTheme.primaryColor
                       : CustomTheme.foregroundColor)
               : Icon(Icons.dark_mode,
                   color: CustomTheme.isDark
-                      ? Colors.deepPurple
+                      ? CustomTheme.primaryColor
                       : CustomTheme.foregroundColor),
       title: Text(
         '$title',

@@ -6,7 +6,7 @@ BoxDecoration containerDecoration() => BoxDecoration(
       boxShadow: [
         BoxShadow(
           color: CustomTheme.isDark
-              ? Colors.deepPurple
+              ? CustomTheme.primaryColor as Color
               : CustomTheme.foregroundColor!
             ..value,
           offset: Offset(1, 1),
